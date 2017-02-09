@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../build/react.min.js"></script>
+	<script src="../../build/react-dom.min.js"></script>
+	<script src="../../build/browser.min.js"></script>
+</head>
+<body>
+	<div id="example"></div>
+	<script type="text/babel">
+		var Component = React.createClass({
+            render: function() {
+                return <div />
+            }
+        });
+        var props = {
+            foo: 'default'
+        };
+        var component = <Component {...props} foo={'override'} />;
+        console.log(component.props.foo);
+	</script>
+</body>
+</html>

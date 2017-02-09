@@ -9,17 +9,8 @@
 </head>
 <body>
 	<div id="example"></div>
-	<div id="divId"></div>
 	<script type="text/babel">
 		var HelloWorld = React.createClass({
-			getDefaultProps: function() {
-				console.log('getDefaultProps');
-				return {};
-			},
-			getInitialState: function() {
-				console.log('getInitialState');
-				return {};
-			},
 			render: function() {
 				return (
 					<h1>
@@ -32,11 +23,6 @@
 		ReactDOM.render(
 			<HelloWorld />,
 			document.getElementById('example')
-		);
-
-		ReactDOM.render(
-			<HelloWorld />,
-			document.getElementById('divId')
 		);
 	</script>
 </body>

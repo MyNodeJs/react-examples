@@ -9,34 +9,28 @@
 </head>
 <body>
 	<div id="example"></div>
-	<div id="divId"></div>
 	<script type="text/babel">
-		var HelloWorld = React.createClass({
-			getDefaultProps: function() {
-				console.log('getDefaultProps');
-				return {};
-			},
-			getInitialState: function() {
-				console.log('getInitialState');
-				return {};
-			},
+		var ListItemWrapper = React.createClass({
+			render: function() {
+				return <li>{this.props.data.text}</li>;
+			}
+		});
+
+		var MyComponent = React.createClass({
 			render: function() {
 				return (
-					<h1>
-						Hello World!
-					</h1>
+					<ul>
+						{
+							this.props.results.map(result => <ListItemWrapper key={result.id} data={result}/>)
+						}
+					</ul>
 				);
 			}
 		});
 
 		ReactDOM.render(
-			<HelloWorld />,
+			<MyComponent results={[{id: 0, text: '0'}, {id: 1, text: '1'}]} />,
 			document.getElementById('example')
-		);
-
-		ReactDOM.render(
-			<HelloWorld />,
-			document.getElementById('divId')
 		);
 	</script>
 </body>

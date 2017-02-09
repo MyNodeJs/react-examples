@@ -1,0 +1,15 @@
+{
+  "name": "babel-compile-jsx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel --presets es2015,react --watch src/ --out-dir lib/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0"
+  }
+}

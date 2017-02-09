@@ -9,34 +9,28 @@
 </head>
 <body>
 	<div id="example"></div>
-	<div id="divId"></div>
 	<script type="text/babel">
-		var HelloWorld = React.createClass({
-			getDefaultProps: function() {
-				console.log('getDefaultProps');
-				return {};
-			},
+		var MyInput = React.createClass({
 			getInitialState: function() {
-				console.log('getInitialState');
-				return {};
+				return {value: 'Hello!'};
+			},
+			handleChange: function(event) {
+				this.setState({value: event.target.value});
 			},
 			render: function() {
 				return (
-					<h1>
-						Hello World!
-					</h1>
+					<input 
+						type="text"
+						value={this.state.value}
+						onChange={this.handleChange}
+					/>
 				);
 			}
 		});
 
 		ReactDOM.render(
-			<HelloWorld />,
+			<MyInput />,
 			document.getElementById('example')
-		);
-
-		ReactDOM.render(
-			<HelloWorld />,
-			document.getElementById('divId')
 		);
 	</script>
 </body>

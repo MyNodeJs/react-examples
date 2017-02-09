@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../build/react.min.js"></script>
+	<script src="../../build/react-dom.min.js"></script>
+	<script src="../../build/browser.min.js"></script>
+</head>
+<body>
+	<div id="example"></div>
+	<script type="text/babel">
+		var Avatar = React.createClass({
+			render: function() {
+				return (
+					<div>
+						<PagePic pagename={this.props.pagename} />
+						<PageLink pagename={this.props.pagename} />
+					</div>
+				);
+			}
+		});
+
+		var PagePic = React.createClass({
+			render: function() {
+				return (
+					<img src={'images/' + this.props.pagename + '/image.jpg'} />
+				);
+			}
+		});
+
+		var PageLink = React.createClass({
+			render: function() {
+				return (
+					<p>
+						<a href={'http://www.baidu.com/'}>
+							{this.props.pagename}
+						</a>
+					</p>
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<Avatar pagename="avatar" />,
+			document.getElementById('example')
+		);
+	</script>
+</body>
+</html>

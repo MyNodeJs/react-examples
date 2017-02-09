@@ -9,34 +9,20 @@
 </head>
 <body>
 	<div id="example"></div>
-	<div id="divId"></div>
 	<script type="text/babel">
-		var HelloWorld = React.createClass({
-			getDefaultProps: function() {
-				console.log('getDefaultProps');
-				return {};
-			},
-			getInitialState: function() {
-				console.log('getInitialState');
-				return {};
-			},
+		var CheckLink = React.createClass({
 			render: function() {
 				return (
-					<h1>
-						Hello World!
-					</h1>
+					<a {...this.props}>{'√ '}{this.props.children}</a>
 				);
 			}
 		});
 
 		ReactDOM.render(
-			<HelloWorld />,
+			<CheckLink href="/checked.html">
+				Click here!
+			</CheckLink>,
 			document.getElementById('example')
-		);
-
-		ReactDOM.render(
-			<HelloWorld />,
-			document.getElementById('divId')
 		);
 	</script>
 </body>

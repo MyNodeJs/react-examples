@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../build/react.min.js"></script>
+	<script src="../../build/react-dom.min.js"></script>
+	<script src="../../build/browser.min.js"></script>
+</head>
+<body>
+	<div id="example"></div>
+	<script type="text/babel">
+		var TextInput = React.createClass({
+			getInitialState: function() {
+				return {
+					value: 'Hello!'
+				};
+			},
+			onChange: function(event) {
+				this.setState({
+					value: event.target.value
+				})
+			},
+			render: function() {
+				return <input type="text" onChange={this.onChange} />;
+			}
+		});
+
+		var MyClass = React.createClass({
+			render: function() {
+			    return (
+			      <TextInput
+			        ref={function(input) {
+			          if (input != null) {
+			            input.focus();
+			          }
+			        }} />
+			    );
+			  }
+		});
+
+		ReactDOM.render(
+			<MyClass />,
+			document.getElementById('example')
+		);
+	</script>
+</body>
+</html>

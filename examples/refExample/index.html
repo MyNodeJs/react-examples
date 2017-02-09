@@ -9,34 +9,30 @@
 </head>
 <body>
 	<div id="example"></div>
-	<div id="divId"></div>
 	<script type="text/babel">
-		var HelloWorld = React.createClass({
-			getDefaultProps: function() {
-				console.log('getDefaultProps');
-				return {};
-			},
-			getInitialState: function() {
-				console.log('getInitialState');
-				return {};
+		var MyComponent = React.createClass({
+			handleClick: function() {
+				if(this.myTextInput != null) {
+					this.myTextInput.focus();
+				}
 			},
 			render: function() {
 				return (
-					<h1>
-						Hello World!
-					</h1>
+					<div>
+						<input type="text" ref={(ref) => this.myTextInput = ref} />
+						<input 
+							type="button"
+							value="Focus the text input"
+							onClick={this.handleClick}
+						/>
+					</div>
 				);
 			}
 		});
 
 		ReactDOM.render(
-			<HelloWorld />,
+			<MyComponent />,
 			document.getElementById('example')
-		);
-
-		ReactDOM.render(
-			<HelloWorld />,
-			document.getElementById('divId')
 		);
 	</script>
 </body>

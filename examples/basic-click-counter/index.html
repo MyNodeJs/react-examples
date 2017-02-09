@@ -9,35 +9,24 @@
 </head>
 <body>
 	<div id="example"></div>
-	<div id="divId"></div>
 	<script type="text/babel">
 		var HelloWorld = React.createClass({
-			getDefaultProps: function() {
-				console.log('getDefaultProps');
-				return {};
-			},
-			getInitialState: function() {
-				console.log('getInitialState');
-				return {};
-			},
 			render: function() {
 				return (
-					<h1>
-						Hello World!
-					</h1>
+					<p>
+						Hello, <input type="text" placeholder="Your name here" />!
+						It is {this.props.date.toTimeString()}
+					</p>
 				);
 			}
 		});
 
-		ReactDOM.render(
-			<HelloWorld />,
-			document.getElementById('example')
-		);
-
-		ReactDOM.render(
-			<HelloWorld />,
-			document.getElementById('divId')
-		);
+		setInterval(function() {
+			ReactDOM.render(
+				<HelloWorld date={new Date()} />,
+				document.getElementById('example')
+			);
+		}, 500);
 	</script>
 </body>
 </html>

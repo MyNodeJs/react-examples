@@ -9,34 +9,24 @@
 </head>
 <body>
 	<div id="example"></div>
-	<div id="divId"></div>
 	<script type="text/babel">
-		var HelloWorld = React.createClass({
-			getDefaultProps: function() {
-				console.log('getDefaultProps');
-				return {};
+		var MyComponent = React.createClass({
+			propTypes: {
+				children: React.PropTypes.element.isRequired
 			},
-			getInitialState: function() {
-				console.log('getInitialState');
-				return {};
-			},
+
 			render: function() {
 				return (
-					<h1>
-						Hello World!
-					</h1>
+					<div>
+						{this.props.children}
+					</div>
 				);
 			}
 		});
 
 		ReactDOM.render(
-			<HelloWorld />,
+			<MyComponent><div>singleChild</div></MyComponent>,
 			document.getElementById('example')
-		);
-
-		ReactDOM.render(
-			<HelloWorld />,
-			document.getElementById('divId')
 		);
 	</script>
 </body>
